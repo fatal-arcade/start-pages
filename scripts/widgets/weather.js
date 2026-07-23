@@ -2,12 +2,12 @@ function cleanURL(url) {
     return (url.replace(/\s+/g, ''));
 }
 
-
 async function getGeolocation(name="New York") {
 
     const url = cleanURL(`
         https://geocoding-api.open-meteo.com/v1/search
-            ?name=${encodeURIComponent(name)}
+            ?countryCode=US
+            &name=${encodeURIComponent(name)}
             &count=1
             &language=en
             &format=json    
