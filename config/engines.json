@@ -1,7 +1,7 @@
 {
     "search_engines": {
         "bing": {
-            "id": "bing",
+            "id": "Bing",
             "url": "https://www.bing.com/search",
             "param": "q",
             "icon": "./assets/icons/engines/bing.png",
