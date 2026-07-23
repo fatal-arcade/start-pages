@@ -1,1 +1,38 @@
+html {
+    color: #eee;
+    background-color: #222;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 
+body {
+    display: flex;
+}
+
+a {
+    color: #2ee;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+h2 {
+    color:#eee;
+}
+
+/* Style all card components */
+.card {
+  background-color: #000;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+[data-widget="clock"] {
+    font-size: 2.0rem;
+    font-weight: normal;
+    color: #eee;
+}
+
+[data-widget="weather"]{
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f9e2af;
+}
