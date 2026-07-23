@@ -1,15 +1,14 @@
 function searchEngineDropdownItem(key, item) {
 
-    // the indentation is necessary for pretty-printed console logs
     return `
-                    <div class="engine-dropdown-item"
-                        data-value="${key}"
-                        data-url="${item.url}"
-                        data-param="${item.param}"
-                        data-icon="${item.icon}">
-                        <img src="${item.icon}" class="engine-favicon">
-                        ${item.id}
-                    </div>
+        <div class="engine-dropdown-item"
+            data-value="${key}"
+            data-url="${item.url}"
+            data-param="${item.param}"
+            data-icon="${item.icon}">
+            <img src="${item.icon}" class="engine-favicon">
+            ${item.id}
+        </div>
     `
 }
 
@@ -18,6 +17,7 @@ async function searchEngineDropdownList() {
     try {
 
         const base = window.location.pathname.includes('start-pages') ? '/start-pages' : '';
+        
         const resp = await fetch(`${base}/config/engines.json`)
 
         if (!resp.ok) {
@@ -50,8 +50,7 @@ async function searchEngineDropdownList() {
         }
 
         items += `
-                </div>
-
+            </div>
             </div>
         `
 
@@ -62,24 +61,25 @@ async function searchEngineDropdownList() {
         console.error('Failed to load search engines:', error);
     }
 
-
 }
 
 export async function Web(element) {
 
-    const placeholder = element.dataset.placeholder || "Search the web...";
+    const placeholder = element.dataset.placeholder || "Search";
 
     const dropdownlist = await searchEngineDropdownList();
 
-    const searchbarHTML = `
+    const websearchbar = `
         
-        <form id="searchForm" class="search-form" action="https://startpage.com/sp/search" method="get" target="_blank">
+        <form id="webSearchBar" class="web-search-bar" action="https://startpage.com/sp/search" method="get" target="_blank">
         
-            <input type="text" id="searchInput" name="query" class="search-input" placeholder="Search" required autocomplete="off" autofocus>
+            <input type="text" id="webSearchInput" name="query" class="web-search-input" placeholder="${placeholder}" required autocomplete="off" autofocus>
+            
             ${dropdownlist}
+        
         </form>        
     `; 
 
-    element.innerHTML = searchbarHTML
+    element.innerHTML = websearchbar
 
 }

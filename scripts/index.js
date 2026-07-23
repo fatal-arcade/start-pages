@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         switch (wtype) {
             case 'bookmarks': Bookmarks.Bookmarks(widget); break;
             case 'clock':     Clock.Time(widget); break;
-            case 'searchbar': Search.Web(widget); break;
+            case 'websearch': Search.Web(widget); break;
             case 'weather':   Weather.Text(widget); break;
             default: break;
         };
@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Handle clicking an item inside the dropdown
         if (item && menu) {
             
-            const form = document.getElementById('searchForm');
-            const input = document.getElementById('searchInput');
+            const form = document.getElementById('webSearchBar');
+            const input = document.getElementById('webSearchInput');
             const currentFavicon = document.getElementById('currentFavicon');
             const currentText = document.getElementById('currentText');
 

@@ -1,3 +1,4 @@
+/*---- native elements ----*/
 html {
     color: #eee;
     background-color: #222;
@@ -5,7 +6,7 @@ html {
 }
 
 body {
-    display: inline-block;
+    display: flex;
 }
 
 a {
@@ -18,41 +19,42 @@ h2 {
     color:#eee;
 }
 
-/* Style all card components */
 .card {
-  background-color: #000;
-  border-radius: 8px;
-  padding: 16px;
+    background-color: #000;
+    border-radius: 8px;
+    padding: 16px;
 }
 
-.browser-search-bar {
-    
-    width: 90%;
-    max-width: 650px;
-    
+/*---- browser search bar ----*/
+.web-search-form {
     display: flex;
     align-items: center;
     position: relative;
-    margin-top: 20px;
-    margin-left: 650px;
-    background-color: rgba(30, 30, 30, 0.75);
+    margin: auto;
+    
+    width: 90%;
+    max-height: 32px;
+    max-width: 650px;
+    z-index: 1000;
+
+    background-color: rgba(30, 255, 255, 0.75);
     backdrop-filter: blur(10px);
-    padding: 6px;
-    border-radius: 30px;
+    padding: 4px 2px;
+    
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 1000;
+    border-radius: 30px;
 }
 
-.search-form {
-    width: 100%;
+.web-search-bar {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
     z-index: 1000;
 }
 
-.search-input {
+.web-search-input {
     width: 100%;
     padding: 10px 170px 10px 18px; /* Extra right padding for the custom selector space */
     font-size: 15px;
@@ -65,7 +67,7 @@ h2 {
     transition: all 0.2s ease;
 }
 
-.search-input:focus {
+.web-search-input:focus {
     background-color: #ffffff;
     box-shadow: 0 0 0 3px rgba(255, 165, 0, 0.6);
 }
