@@ -17,7 +17,8 @@ async function searchEngineDropdownList() {
 
     try {
 
-        const resp = await fetch('./config/engines.json')
+        const base = window.location.pathname.includes('start-pages') ? '/start-pages' : '';
+        const resp = await fetch(`${base}/config/engines.json`)
 
         if (!resp.ok) {
             throw new Error(`${resp.status}`)
