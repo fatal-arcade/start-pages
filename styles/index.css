@@ -25,7 +25,7 @@ h2 {
   padding: 16px;
 }
 
-.search-form {
+.browser-search-bar {
     
     width: 90%;
     max-width: 650px;
@@ -44,7 +44,7 @@ h2 {
     z-index: 1000;
 }
 
-.search-bar {
+.search-form {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -70,6 +70,95 @@ h2 {
     box-shadow: 0 0 0 3px rgba(255, 165, 0, 0.6);
 }
 
+/* Custom Dropdown Container Wrapper */
+.custom-dropdown {
+    position: absolute;
+    right: 12px;
+    user-select: none;
+}
+
+/* The clickable block showing current engine selection */
+.dropdown-trigger {
+    padding: 6px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #ccc;
+    border-radius: 18px;
+    background-color: #f0f0f0;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dropdown-trigger:hover {
+    background-color: #e5e5e5;
+}
+
+/* Tiny down chevron icon */
+.dropdown-trigger::after {
+    content: "";
+    border: solid #333;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 2px;
+    transform: rotate(45deg);
+    margin-left: 2px;
+}
+
+/* Favicon Image formatting */
+.engine-favicon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    border-radius: 2px;
+}
+
+/* Favicon Image formatting */
+.testing-favicon {
+    width: 100%;
+    height: 100%;
+    object-fit:contain;
+    border-radius: 2px;
+}
+
+/* Hidden pop-up overlay box */
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border: 1px solid #ddd;
+    overflow: hidden;
+    display: none; /* Managed by JS toggling */
+    flex-direction: column;
+    min-width: 140px;
+}
+
+/* Class name applied by JS to reveal menu layout */
+.dropdown-menu.show {
+    display: flex;
+}
+
+/* Individual selection row targets */
+.engine-dropdown-item {
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.15s;
+}
+
+.engine-dropdown-item:hover {
+    background-color: #f5f5f5;
+}
 
 
 [data-widget="clock"] {

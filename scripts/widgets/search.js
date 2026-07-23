@@ -1,16 +1,14 @@
 function searchEngineDropdownItem(key, item) {
-    
-    data = item.json()
 
     return `
-        <div class="engine-dropdown-item"
-            data-value=${key}
-            data-url=${''}
-            data-param=${''}
-            data-icon=${''}>
-            <img src=${''} class="engine-favicon">
-            ${item.id}
-        </div>
+                    <div class="engine-dropdown-item"
+                        data-value="${key}"
+                        data-url="${item.url}"
+                        data-param="${item.param}"
+                        data-icon="${item.icon}">
+                        <img src="${item.icon}" class="engine-favicon">
+                        ${item.id}
+                    </div>
     `
 }
 
@@ -26,9 +24,36 @@ async function searchEngineDropdownList() {
 
         const data = await resp.json();
 
-        const items = data.search_engines;
+        const engines = data.search_engines;
+        
+        let items = `
+            <div class="custom-dropdown">
+            
+                <div class="dropdown-trigger" id="dropdownTrigger">
+                    
+                    <img src="${engines.startpage.icon}" 
+                        class="engine-favicon" 
+                        id="currentFavicon">
+                    
+                    <span id="currentText">Startpage</span>
+                
+                </div>
 
-        return items
+                <div class="dropdown-menu" id="dropdownMenu">
+
+        `
+        
+        for (const [key, field] of Object.entries(engines)) {
+            items += searchEngineDropdownItem(key, field);
+        }
+
+        items += `
+                </div>
+
+            </div>
+        `
+
+        return items;
         
     } catch (error) {
 
@@ -38,18 +63,21 @@ async function searchEngineDropdownList() {
 
 }
 
-export function Web(element) {
+export async function Web(element) {
 
     const placeholder = element.dataset.placeholder || "Search the web...";
 
-    element.innerHTML = `
-        
-        <form id="search" class="search-bar" action="https://startpage.com/sp/search" method="get" target="_blank">
-        
-            <input type="text" id="searchInput" name="query" class="search-input" placeholder="Search" autocomplete="off" autofocus required>
+    const dropdownlist = await searchEngineDropdownList();
 
-        </form>
-    `;
+    const searchbarHTML = `
+        
+        <form id="searchForm" class="search-form" action="https://startpage.com/sp/search" method="get" target="_blank">
+        
+            <input type="text" id="searchInput" name="query" class="search-input" placeholder="Search" required autocomplete="off" autofocus>
+            ${dropdownlist}
+        </form>        
+    `; 
 
+    element.innerHTML = searchbarHTML
 
 }
