@@ -1,0 +1,95 @@
+{
+    "search_engines": {
+        "bing": {
+            "id": "bing",
+            "url": "https://www.bing.com/search",
+            "param": "q",
+            "icon": "./assets/icons/engines/bing.png",
+            "private": false
+        },
+        "brave_search": {
+            "id": "Brave",
+            "url": "https://search.brave.com/search",
+            "param": "q",
+            "icon": "./assets/icons/engines/brave.png",
+            "private": true
+        },
+        "duckduckgo": {
+            "id": "DuckDuckGo",
+            "url": "https://duckduckgo.com/",
+            "param": "q",
+            "icon": "./assets/icons/engines/duckduckgo.png",
+            "private": true
+        },
+        "ecosia": {
+            "id": "Ecosia",
+            "url": "https://ecosia.org/search",
+            "param": "q",
+            "icon": "./assets/icons/engines/ecosia.png",
+            "private": true
+        },
+        "google": {
+            "id": "Google",
+            "url": "https://google.com/search",
+            "param": "q",
+            "icon": "./assets/icons/engines/google.png",
+            "private": false
+        },
+        "kagi": {
+            "id": "Kagi",
+            "url": "https://kagi.com/search",
+            "param": "q",
+            "icon": "./assets/icons/engines/kagi.png",
+            "private": true
+        },
+        "metager": {
+            "id": "MetaGer",
+            "url": "https://metager.org/meta/meta.ger3",
+            "param": "eingabe",
+            "icon": "./assets/icons/engines/metager.png",
+            "private": true
+        },
+        "mojeek": {
+            "id": "Mojeek",
+            "url": "https://mojeek.com/search",
+            "param": "q",
+            "icon": "./assets/icons/engines/mojeek.png",
+            "private": true
+        },
+        "qwant": {
+            "id": "Qwant",
+            "url": "https://qwant.com/search",
+            "param": "q",
+            "icon": "./assets/icons/engines/qwant.png",
+            "private": true
+        },
+        "searxng": {
+            "id": "SearXNG",
+            "url": "https://searx.be/search",
+            "param": "q",
+            "icon": "./assets/icons/engines/searxng.png",
+            "private": true
+        },
+        "startpage": {
+            "id": "Startpage",
+            "url": "https://startpage.com/sp/search",
+            "param": "query",
+            "icon": "./assets/icons/engines/startpage.png",
+            "private": true
+        },
+        "swisscows": {
+            "id": "Swisscows",
+            "url": "https://swisscows.com/en/web",
+            "param": "query",
+            "icon": "./assets/icons/engines/swisscows.png",
+            "private": true
+        },
+        "yahoo": {
+            "id": "Yahoo!",
+            "url": "https://search.yahoo.com/search",
+            "param": "p",
+            "icon": "./assets/icons/engines/yahoo.png",
+            "private": false
+        }
+    }
+}
