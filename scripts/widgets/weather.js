@@ -6,11 +6,11 @@ async function getGeolocation(name="New York") {
 
     const url = cleanURL(`
         https://geocoding-api.open-meteo.com/v1/search
-            ?countryCode=US
-            &name=${encodeURIComponent(name)}
+            ?name=${encodeURIComponent(name)}
             &count=1
             &language=en
-            &format=json    
+            &format=json
+            &countryCode=US    
     `);
     
     const resp = await fetch(url);
@@ -21,14 +21,14 @@ async function getGeolocation(name="New York") {
         throw new Error('City not found');
     }
 
-    const geo = {
+    const loc = {
         name:       data.results[0].name,
         country:    data.results[0].country,
         latitude:   data.results[0].latitude,
         longitude:  data.results[0].longitude
     };
     
-    return {geo};
+    return (loc);
 }
 
 async function getWeatherForecast(city="New York") {
@@ -46,16 +46,16 @@ async function getWeatherForecast(city="New York") {
     try {
 
         const resp = await fetch(url);
-        
         const data = await resp.json();
-        
+
         const temp = {
-            celsius: `${data.current.temperature_2m}${data.current_units.temperature_2m}`,
-            fahrenheit:  `${(data.current.temperature_2m * 9/5 + 32).toFixed(1)}°F` 
+            celsius:    `${ data.current.temperature_2m}°C`,
+            fahrenheit: `${(data.current.temperature_2m * 9/5 + 32).toFixed(1)}°F`,
+            humidity:   `${data.current.relative_humidity_2m}%` 
         };
+
+        return (temp);
         
-        return (`${temp.fahrenheit} / ${temp.celsius}`);
-    
     } catch(error) {
         
         console.error('Weather fetch failed:', error)
@@ -63,6 +63,7 @@ async function getWeatherForecast(city="New York") {
         return ('N/A');
     
     }
+    
 }
 
 export async function Text(element) {
@@ -73,7 +74,9 @@ export async function Text(element) {
 
     element.innerHTML = `
         <div class="weather-box">
-            <strong>${loc}</strong>: ${val}
+            <p style="font-weight: bold;">${loc}</p>
+            <p style="font-weight: normal;">${val.fahrenheit} / ${val.celsius}</p>
+            <p style="font-weight: normal; font-size: 1.0rem;">Humidity: ${val.humidity}</p> 
         </div>
     `;
 
