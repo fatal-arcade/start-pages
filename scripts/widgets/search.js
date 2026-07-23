@@ -1,5 +1,6 @@
 function searchEngineDropdownItem(key, item) {
 
+    // the indentation is necessary for pretty-printed console logs
     return `
                     <div class="engine-dropdown-item"
                         data-value="${key}"
