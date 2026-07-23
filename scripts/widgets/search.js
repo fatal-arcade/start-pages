@@ -17,7 +17,7 @@ async function searchEngineDropdownList() {
 
     try {
 
-        const resp = await fetch('../config/engines.json')
+        const resp = await fetch('./config/engines.json')
 
         if (!resp.ok) {
             throw new Error(`${resp.status}`)
