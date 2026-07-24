@@ -1,3 +1,4 @@
+
 import * as Bookmarks   from './widgets/bookmarks.js'
 import * as Clock       from './widgets/clock.js'
 import * as Search      from './widgets/search.js'
@@ -18,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'weather':   Weather.Text(widget); break;
             default: break;
         };
-    
     });
 
     // 2. Event Delegation for Dynamically Generated Dropdowns
@@ -60,5 +60,4 @@ document.addEventListener('DOMContentLoaded', () => {
             menu.classList.remove('show');
         }
     });
-
 });

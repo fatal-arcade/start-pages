@@ -1,6 +1,6 @@
+
 /*---- native elements ----*/
 html {
-    color: #eee;
     background-color: #222;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -24,6 +24,7 @@ h2 {
     border-radius: 8px;
     padding: 16px;
 }
+
 
 /*---- browser search bar ----*/
 .web-search-form {
@@ -166,11 +167,9 @@ h2 {
 [data-widget="clock"] {
     font-size: 2.0rem;
     font-weight: normal;
-    color: #eee;
 }
 
 [data-widget="weather"]{
   font-size: 1.5rem;
   font-weight: bold;
-  color: #f9e2af;
 }

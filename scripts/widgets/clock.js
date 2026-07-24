@@ -1,3 +1,4 @@
+
 export function Time(element) {
 
     const secs = element.dataset.seconds === 'true';
@@ -5,7 +6,7 @@ export function Time(element) {
     function update() {
         const now = new Date();
 
-        element.textContent = secs
+        element.innerText = secs
         ? now.toLocaleTimeString()
         : now.toLocaleTimeString([], {hours: '2-digit', minute: '2-digit'});
     }

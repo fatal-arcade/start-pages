@@ -1,3 +1,4 @@
+
 function cleanURL(url) {
     return (url.replace(/\s+/g, ''));
 }
@@ -44,10 +45,8 @@ async function getWeatherForecast(city="New York") {
     `);
 
     try {
-
         const resp = await fetch(url);
         const data = await resp.json();
-
         const temp = {
             celsius:    `${ data.current.temperature_2m}°C`,
             fahrenheit: `${(data.current.temperature_2m * 9/5 + 32).toFixed(1)}°F`,
@@ -56,10 +55,8 @@ async function getWeatherForecast(city="New York") {
 
         return (temp);
         
-    } catch(error) {
-        
+    } catch(error) {      
         console.error('Weather fetch failed:', error)
-
         return ('N/A');
     
     }
